@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Cloud Summit 2019 - Devoteam G Cloud</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+  <nav role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">
+        <img src="assets/img/devoteamgcloud.png" />
+      </a>
+    </div>
+  </nav>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center devoteam-pink-text">Google Cloud Summit 2019</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Déployer son application cloud native en 10 min</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col offset-m4 m4 s12 center">
+          <a href="https://github.com/devoteam-g-cloud/cloud-summit-2019">
+            <img src="assets/img/qrcode.png" width="300"/>
+          </a>
+          <h6>
+            Retrouvez le code source et les explications sur notre GitHub !
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <h3 class="center devoteam-pink-text">Quelques réalisations du Digital Lab</h3>
+
+      <div class="row">
+
+        {% for project in projects %}
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">{{ project.icon }}</i></h2>
+            <div class="app-thumbnail z-depth-2">
+              <a href="#{{ project.icon }}-modal" class="modal-trigger">
+                <img src="{{ project.picture}}" />
+              </a>
+            </div>
+            <h5 class="center">{{ project.name }}</h5>
+            <p class="light">{{ project.description }}</p>
+          </div>
+        </div>
+
+        <div id="{{ project.icon }}-modal" class="modal">
+          <div class="modal-content">
+            <h4>{{ project.name }}</h4>
+            <div class="app-picture">
+              <img src="{{ project.picture }}" />
+            </div>
+            <p>
+              Technos: {{ project.technos }}
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Qui sommes nous ?</h5>
+          <p class="grey-text text-lighten-4">
+              Depuis 10 ans, Devoteam G Cloud se positionne comme le Pure Player Google Cloud. Travail collaboratif avec G Suite & expertise Data, Infrastructure et Machine Learning avec Google Cloud Platform & Géolocalisation avec Google Maps.
+          </p>
+
+
+        </div>
+        <div class="col l3 s12 offset-l3">
+          <h5 class="white-text">Quelques liens</h5>
+          <ul>
+            <li><a class="white-text" href="https://gcloud.devoteam.com/">Devoteam G Cloud - site web</a></li>
+            <li><a class="white-text" href="https://github.com/devoteam-g-cloud">Devoteam G Cloud sur GitHub</a></li>
+            <li><a class="white-text" href="https://docs.google.com/presentation/d/1uqtD6myS0sY_llf2PkZwpjz50IbkDSpZamLuWnXPkUA/view">Slides présentées lors du Cloud Summit</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Based on by <a href="http://materializecss.com" class="white-text">Materialize</a> template
+      </div>
+    </div>
+  </footer>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+    <script src="assets/js/init.js"></script>
+</body>
+</html>

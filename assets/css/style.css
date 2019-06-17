@@ -1,0 +1,47 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+
+nav {
+    background-color: white;
+}
+
+nav .brand-logo img {
+    height: 45px;
+    margin-top: 9px;
+}
+
+.devoteam-pink-text {
+    color: #f7485e;
+}
+
+.page-footer {
+    background-color: #f7485e;
+}
+
+.btn-more {
+    background-color: black;
+}
+
+.app-thumbnail img {
+    width: 100%;
+}
+
+.app-picture {
+    text-align: center;
+}
+
+.modal {
+    background-color: white;
+}
