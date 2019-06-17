@@ -1,29 +1,19 @@
-import os
 import logging
 
 from flask import Flask, send_from_directory, render_template
 import pymysql
 
-db_user = os.environ.get('CLOUD_SQL_USERNAME') or 'root'
-db_password = os.environ.get('CLOUD_SQL_PASSWORD') or 'localroot1234'
-db_name = os.environ.get('CLOUD_SQL_DATABASE_NAME') or 'cloudsummit2019'
-db_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
+db_user = 'root'
+db_password = 'localroot1234'
+db_name = 'cloudsummit2019'
+db_host = '127.0.0.1'
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def main():
-    # When deployed to App Engine, the `GAE_ENV` environment variable will be
-    # set to `standard`
-    if os.environ.get('GAE_ENV') == 'standard':
-        # If deployed, use the local socket interface for accessing Cloud SQL
-        unix_socket = '/cloudsql/{}'.format(db_connection_name)
-        cnx = pymysql.connect(user=db_user, password=db_password,
-                              unix_socket=unix_socket, db=db_name)
-    else:
-        cnx = pymysql.connect(user=db_user, password=db_password,
-                              host='127.0.0.1', db=db_name)
+    cnx = pymysql.connect(user=db_user, password=db_password, host=db_host, db=db_name)
 
     with cnx.cursor() as cursor:
         cursor.execute('SELECT name, description, technos, picture, icon, url FROM projects')
