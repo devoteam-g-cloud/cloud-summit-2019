@@ -30,6 +30,8 @@ def main():
         results = cursor.fetchall()
     cnx.close()
 
+    logging.info('{} project(s) have been retrieved from the database.'.format(len(results)))
+
     projects = [{
         'name': result[0],
         'description': result[1],
@@ -44,6 +46,7 @@ def main():
 
 @app.route('/assets/<path:path>')
 def serve_assets(path):
+    logging.info('This asset has been requested: {}'.format(path))
     return send_from_directory('assets', path)
 
 
